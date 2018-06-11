@@ -17,7 +17,7 @@
       "dom"
     ],
     "paths": {
-      "@nspire909/ng-timer": [
+      "@devrec/ng-timer": [
         "dist/ng-timer"
       ],
       "ng-timer/*": [

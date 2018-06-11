@@ -1,5 +1,5 @@
 {
-  "name": "@nspire909/ng-timer",
+  "name": "@devrec/ng-timer",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/cdk": "^6.0.0",

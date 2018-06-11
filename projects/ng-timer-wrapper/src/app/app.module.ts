@@ -5,7 +5,7 @@ import {
   MatCheckboxModule,
   MatToolbarModule
 } from '@angular/material';
-import { TimerModule } from '@nspire909/ng-timer';
+import { TimerModule } from '@devrec/ng-timer';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
