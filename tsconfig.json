@@ -15,6 +15,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@nspire909/ng-timer": [
+        "dist/ng-timer"
+      ],
+      "ng-timer/*": [
+        "dist/ng-timer/*"
+      ]
+    }
   }
 }
