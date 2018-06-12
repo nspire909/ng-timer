@@ -19,9 +19,6 @@
     "paths": {
       "@devrec/ng-timer": [
         "dist/ng-timer"
-      ],
-      "ng-timer/*": [
-        "dist/ng-timer/*"
       ]
     }
   }

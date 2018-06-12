@@ -1,7 +1,7 @@
 {
   "name": "@devrec/ng-timer",
   "description": "Angular timer using rxjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/nspire909/ng-timer.git"
