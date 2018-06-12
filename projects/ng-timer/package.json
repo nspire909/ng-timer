@@ -1,6 +1,22 @@
 {
   "name": "@devrec/ng-timer",
+  "description": "Angular timer using rxjs",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nspire909/ng-timer.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Nick Marks",
+    "email": "nspire909@gmail.com",
+    "url": "https://github.com/nspire909"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nspire909/ng-timer/issues"
+  },
+  "homepage": "https://github.com/nspire909/ng-timer",
   "peerDependencies": {
     "@angular/cdk": "^6.0.0",
     "@angular/common": "^6.0.0",
