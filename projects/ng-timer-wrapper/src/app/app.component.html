@@ -5,5 +5,8 @@
   <mat-checkbox [(ngModel)]="isDarkTheme"></mat-checkbox>
 </mat-toolbar>
 <div class="page-content" [ngClass]="isDarkTheme ? 'dark-theme' : ''">
-  <ng-timer></ng-timer>
+  <ng-timer-input [(startTime)]="startTime"></ng-timer-input>
+  <ng-timer-controls [timer$]="timer.timer$" [pause$]="timer.pause$" (startTimer)="timer.start()" (stopTimer)="timer.stop()" (toggleTimer)="timer.toggle()"></ng-timer-controls>
+  <ng-timer [startTime]="startTime"></ng-timer>
+  <!-- <ng-timer startTime="60000" interval="100" timeFormat="mm:ss.SSS" countdown [autostart]="test"></ng-timer> -->
 <div>

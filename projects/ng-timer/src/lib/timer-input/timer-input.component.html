@@ -1,0 +1,9 @@
+<form #form="ngForm">
+  <label for="startTime">
+    Start Time
+  </label>
+  <mat-form-field class="form-control">
+    <input matInput type="number" required [(ngModel)]="startTime" (ngModelChange)="startTimeChanged($event)" name="startTime">
+    <span matSuffix>ms</span>
+  </mat-form-field>
+</form>

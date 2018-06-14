@@ -18,7 +18,7 @@
     ],
     "paths": {
       "@devrec/ng-timer": [
-        "dist/ng-timer"
+        "projects/ng-timer/src/public_api"
       ]
     }
   }
