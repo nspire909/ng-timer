@@ -1,36 +1,20 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { TimerService } from '../timer/timer.service';
+import { Timer } from '../models';
 
 @Component({
   selector: 'ng-timer-controls',
   templateUrl: './timer-controls.component.html',
   styleUrls: ['./timer-controls.component.scss']
 })
-export class TimerControlsComponent {
+export class TimerControlsComponent implements OnInit {
   @Input()
-  timer$: Observable<number>;
+  name = 'timer';
+  timer: Timer;
 
-  @Input()
-  pause$: Observable<boolean>;
+  constructor(public timerService: TimerService) {}
 
-  @Output()
-  startTimer = new EventEmitter();
-
-  @Output()
-  stopTimer = new EventEmitter();
-
-  @Output()
-  toggleTimer = new EventEmitter();
-
-  start() {
-    this.startTimer.emit();
-  }
-
-  stop() {
-    this.stopTimer.emit();
-  }
-
-  toggle() {
-    this.toggleTimer.emit();
+  ngOnInit() {
+    this.timer = this.timerService.timers[this.name];
   }
 }

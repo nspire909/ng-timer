@@ -1,26 +1,24 @@
-<form #form="ngForm">
-  <label for="startTime">Start Time</label>
+<form #form="ngForm" *ngIf="timer">
   <mat-form-field>
-    <input matInput type="number" required [(ngModel)]="startTime" (ngModelChange)="startTimeChanged($event)" name="startTime">
-    <!-- <span matSuffix>{{units}}</span> -->
+    <input matInput type="number" required [(ngModel)]="timer.startTime" name="startTime" placeholder="Start Time">
+    <span matSuffix>{{timer.units}}</span>
   </mat-form-field>
   <mat-form-field>
-    <mat-select [(ngModel)]="units" (selectionChange)="unitsChanged(units)" name="units">
+    <mat-select [(ngModel)]="timer.units" name="units" placeholder="Units">
       <mat-option *ngFor="let unitType of unitTypes" [value]="unitType.value">
         {{ unitType.name }}
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-checkbox [(ngModel)]="countdown" (change)="countdownChanged(countdown)" name="countdown">Countdown</mat-checkbox>
-  <label for="timeFormat">Time Format</label>
   <!-- <mat-form-field>
-    <input matInput type="text" required [(ngModel)]="timeFormat" (ngModelChange)="timeFormatChanged($event)" name="timeFormat">
+    <input matInput type="text" required [(ngModel)]="timer.timeFormat" name="timeFormat"  placeholder="Time Format">
   </mat-form-field> -->
   <mat-form-field>
-    <mat-select [(ngModel)]="timeFormat" (selectionChange)="timeFormatChanged(timeFormat)" name="timeFormat">
+    <mat-select [(ngModel)]="timer.timeFormat" name="timeFormat" placeholder="Time Format">
       <mat-option *ngFor="let tf of timeFormats" [value]="tf">
         {{ tf }}
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <mat-checkbox [(ngModel)]="timer.countdown" name="countdown">Countdown</mat-checkbox>
 </form>

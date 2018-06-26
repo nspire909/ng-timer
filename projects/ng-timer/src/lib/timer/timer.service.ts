@@ -1,65 +1,91 @@
 import { Injectable } from '@angular/core';
-import { interval, merge, Observable, BehaviorSubject, Subject, NEVER, EMPTY } from 'rxjs';
+import { interval, merge, BehaviorSubject, Subject, NEVER, EMPTY } from 'rxjs';
 import { switchMap, scan, takeWhile, startWith, mapTo, takeUntil } from 'rxjs/operators';
-import { Unit } from '../models';
+import { Unit, TimerOptions, Timer, Timers } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TimerService {
-  startTime = 0;
+  private defaultTimer: Timer = {
+    startTime: 0,
+    units: Unit.Milliseconds,
+    interval: 100,
+    timeFormat: 'mm:ss.SSS',
+    countdown: false,
+    autostart: false,
+    locale: 'en-US',
+    timer$: NEVER,
+    pause$: new BehaviorSubject(true),
+    reset$: new Subject()
+  };
 
-  units = Unit.Milliseconds;
+  timers: Timers = {};
 
-  interval = 100;
+  newTimer(timerName: string, timerOptions?: TimerOptions) {
+    if (timerName && !this.timers[timerName]) {
+      this.timers[timerName] = {
+        ...this.defaultTimer,
+        ...timerOptions
+      };
+    }
+  }
 
-  timeFormat = 'mm:ss.SSS';
+  start(timerName: string) {
+    const timer = this.timers[timerName];
 
-  countdown = false;
-
-  autostart = false;
-
-  locale = 'en-US';
-
-  timer$: Observable<number>;
-
-  pause$: BehaviorSubject<boolean> = new BehaviorSubject(true);
-
-  reset$: Subject<void> = new Subject();
-
-  constructor() { }
-
-  start() {
-    const interval$ = interval(this.interval).pipe(
-      startWith(0),
-      mapTo(this.countdown ? -1 : 1),
-      takeUntil(this.reset$)
-    );
-
-    const startTimeMS = this.units === Unit.Seconds
-      ? this.startTime * 1000
-      : this.units === Unit.Minutes
-        ? this.startTime * 1000 * 60
-        : this.units === Unit.Hours
-          ? this.startTime * 1000 * 60 * 60
-          : this.startTime;
-
-    this.pause$.next(false);
-
-    this.timer$ = merge(this.pause$)
-      .pipe(
-        switchMap(val => (!val ? interval$ : EMPTY)),
-        scan((acc, curr) => (curr ? curr + acc : acc), startTimeMS / this.interval),
-        takeUntil(this.reset$),
-        takeWhile(t => t >= 0)
+    if (timer) {
+      const interval$ = interval(timer.interval).pipe(
+        startWith(0),
+        mapTo(timer.countdown ? -1 : 1),
+        takeUntil(timer.reset$)
       );
+
+      const startTimeMS = timer.units === Unit.Seconds
+        ? timer.startTime * 1000
+        : timer.units === Unit.Minutes
+          ? timer.startTime * 1000 * 60
+          : timer.units === Unit.Hours
+            ? timer.startTime * 1000 * 60 * 60
+            : timer.startTime;
+
+      timer.pause$.next(false);
+
+      timer.timer$ = merge(timer.pause$)
+        .pipe(
+          switchMap(val => (!val ? interval$ : EMPTY)),
+          scan((acc, curr) => (curr ? curr + acc : acc), startTimeMS / timer.interval),
+          takeUntil(timer.reset$),
+          takeWhile(t => t >= 0)
+        );
+    }
   }
 
-  stop() {
-    this.timer$ = NEVER;
+  stop(timerName: string) {
+    const timer = this.timers[timerName];
+    if (timer) {
+      timer.timer$ = NEVER;
+    }
   }
 
-  toggle() {
-    this.pause$.next(!this.pause$.value);
+  toggle(timerName: string) {
+    const timer = this.timers[timerName];
+    if (timer) {
+      timer.pause$.next(!timer.pause$.value);
+    }
+  }
+
+  startTimeMS(timerName: string) {
+    const timer = this.timers[timerName];
+
+    if (timer) {
+      return timer.units === Unit.Seconds
+        ? timer.startTime * 1000
+        : timer.units === Unit.Minutes
+          ? timer.startTime * 1000 * 60
+          : timer.units === Unit.Hours
+            ? timer.startTime * 1000 * 60 * 60
+            : timer.startTime;
+    }
   }
 }

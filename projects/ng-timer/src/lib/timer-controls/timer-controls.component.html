@@ -1,12 +1,14 @@
-<div *ngIf="timer$ | async">
-  <button mat-button (click)=toggle()>
-    <mat-icon>{{(pause$ | async) ? 'play_arrow' : 'pause'}}</mat-icon>
-  </button>
-  <ng-content></ng-content>
-  <button mat-button (click)=stop()>
-    <mat-icon>stop</mat-icon>
+<div *ngIf="timer">
+  <div *ngIf="timer.timer$ | async">
+    <button mat-button (click)=timerService.toggle(name)>
+      <mat-icon>{{(timer.pause$ | async) ? 'play_arrow' : 'pause'}}</mat-icon>
+    </button>
+    <ng-content></ng-content>
+    <button mat-button (click)=timerService.stop(name)>
+      <mat-icon>stop</mat-icon>
+    </button>
+  </div>
+  <button mat-button *ngIf="!(timer.timer$ | async)" (click)=timerService.start(name)>
+    <mat-icon>play_arrow</mat-icon>
   </button>
 </div>
-<button mat-button *ngIf="!(timer$ | async)" (click)=start()>
-  <mat-icon>play_arrow</mat-icon>
-</button>

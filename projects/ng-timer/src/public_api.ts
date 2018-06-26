@@ -3,4 +3,5 @@
  */
 
 export * from './lib/timer/timer.component';
+export * from './lib/timer/timer.service';
 export * from './lib/timer.module';

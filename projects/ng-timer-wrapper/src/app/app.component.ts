@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Unit } from '../../../ng-timer/src/lib/models';
+import { TimerService } from '@devrec/ng-timer';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,15 @@ import { Unit } from '../../../ng-timer/src/lib/models';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  startTime = 60;
-  units = Unit.Seconds;
-  countdown = true;
-  timeFormat = 'mm:ss.SSS';
+  name = 'myTimer';
+  isDarkTheme = true;
+
+  constructor(timerService: TimerService) {
+    timerService.newTimer(this.name, {
+      startTime: 60,
+      units: Unit.Seconds,
+      countdown: true,
+      timeFormat: 'mm:ss.SSS'
+    });
+  }
 }
