@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSelectModule, MatCheckboxModule } from '@angular/material';
 import { TimerComponent } from './timer/timer.component';
 import { TimerInputComponent } from './timer-input/timer-input.component';
 import { TimerControlsComponent } from './timer-controls/timer-controls.component';
@@ -13,7 +13,9 @@ import { TimerControlsComponent } from './timer-controls/timer-controls.componen
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatCheckboxModule
   ],
   declarations: [
     TimerComponent,

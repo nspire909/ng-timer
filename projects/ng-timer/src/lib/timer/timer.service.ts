@@ -1,68 +1,33 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { interval, merge, Observable, BehaviorSubject, Subject, NEVER, EMPTY } from 'rxjs';
 import { switchMap, scan, takeWhile, startWith, mapTo, takeUntil } from 'rxjs/operators';
 import { Unit } from '../models';
-import { TimerService } from './timer.service';
 
-@Component({
-  selector: 'ng-timer',
-  templateUrl: './timer.component.html',
-  styleUrls: ['./timer.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class TimerComponent implements OnInit {
-  @Input()
+export class TimerService {
   startTime = 0;
 
-  @Input()
   units = Unit.Milliseconds;
 
-  @Input()
   interval = 100;
 
-  @Input()
   timeFormat = 'mm:ss.SSS';
 
-  private _countdown = false;
+  countdown = false;
 
-  @Input()
-  set countdown(value: boolean | string) {
-    this._countdown = value !== 'false' && value !== false;
-  }
-  get countdown() {
-    return this._countdown;
-  }
+  autostart = false;
 
-  private _autostart = false;
-
-  @Input()
-  set autostart(value: boolean | string) {
-    this._autostart = value !== 'false' && value !== false;
-  }
-  get autostart() {
-    return this._autostart;
-  }
-
-  @Input()
   locale = 'en-US';
 
-  @Output()
   timer$: Observable<number>;
 
-  @Output()
   pause$: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
-  @Output()
   reset$: Subject<void> = new Subject();
 
-  show = true;
-
-  constructor(timerService: TimerService) { }
-
-  ngOnInit() {
-    if (this.autostart) {
-      this.start();
-    }
-  }
+  constructor() { }
 
   start() {
     const interval$ = interval(this.interval).pipe(

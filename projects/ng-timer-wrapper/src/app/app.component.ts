@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { TimerComponent } from '@devrec/ng-timer';
+import { Component } from '@angular/core';
+import { Unit } from '../../../ng-timer/src/lib/models';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +7,8 @@ import { TimerComponent } from '@devrec/ng-timer';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  startTime = 0;
-
-  @ViewChild(TimerComponent)
-  timer;
+  startTime = 60;
+  units = Unit.Seconds;
+  countdown = true;
+  timeFormat = 'mm:ss.SSS';
 }
