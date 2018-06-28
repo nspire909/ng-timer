@@ -1,5 +1,4 @@
-import { interval, merge, Observable, BehaviorSubject, Subject, NEVER, EMPTY } from 'rxjs';
-import { switchMap, scan, takeWhile, startWith, mapTo, takeUntil } from 'rxjs/operators';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
 
 export enum Unit {
   Milliseconds = 'ms',
@@ -27,6 +26,7 @@ export interface Timer extends TimerOptions {
   timer$: Observable<number>;
   pause$: BehaviorSubject<boolean>;
   reset$: Subject<void>;
+  // addTime$: BehaviorSubject<number>;
 }
 
 export interface Timers {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { interval, merge, BehaviorSubject, Subject, NEVER, EMPTY } from 'rxjs';
-import { switchMap, scan, takeWhile, startWith, mapTo, takeUntil } from 'rxjs/operators';
+import { switchMap, scan, takeWhile, startWith, mapTo, takeUntil, take } from 'rxjs/operators';
 import { Unit, TimerOptions, Timer, Timers } from '../models';
 
 @Injectable({
@@ -17,7 +17,8 @@ export class TimerService {
     locale: 'en-US',
     timer$: NEVER,
     pause$: new BehaviorSubject(true),
-    reset$: new Subject()
+    reset$: new Subject(),
+    // addTime$: new BehaviorSubject(1),
   };
 
   timers: Timers = {};
@@ -35,31 +36,35 @@ export class TimerService {
     const timer = this.timers[timerName];
 
     if (timer) {
+      // timer.addTime$.next((timer.countdown ? -1 : 1));
+
       const interval$ = interval(timer.interval).pipe(
         startWith(0),
-        mapTo(timer.countdown ? -1 : 1),
+        mapTo((timer.countdown ? -1 : 1)),
+        // switchMap(val => timer.addTime$),
         takeUntil(timer.reset$)
       );
-
-      const startTimeMS = timer.units === Unit.Seconds
-        ? timer.startTime * 1000
-        : timer.units === Unit.Minutes
-          ? timer.startTime * 1000 * 60
-          : timer.units === Unit.Hours
-            ? timer.startTime * 1000 * 60 * 60
-            : timer.startTime;
 
       timer.pause$.next(false);
 
       timer.timer$ = merge(timer.pause$)
         .pipe(
           switchMap(val => (!val ? interval$ : EMPTY)),
-          scan((acc, curr) => (curr ? curr + acc : acc), startTimeMS / timer.interval),
+          scan((acc, curr) => (curr ? curr + acc : acc), this.startTimeMS(timerName) / timer.interval),
           takeUntil(timer.reset$),
           takeWhile(t => t >= 0)
         );
     }
   }
+
+  // addTime(timerName: string, ms: number) {
+  //   const timer = this.timers[timerName];
+
+  //   if (timer) {
+  //     timer.addTime$.next((timer.countdown ? -1 : 1) * ms);
+  //     timer.addTime$.next((timer.countdown ? -1 : 1));
+  //   }
+  // }
 
   stop(timerName: string) {
     const timer = this.timers[timerName];
