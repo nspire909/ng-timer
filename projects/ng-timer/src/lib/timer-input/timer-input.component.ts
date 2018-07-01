@@ -11,6 +11,22 @@ import { Timer } from '../models';
 export class TimerInputComponent implements OnInit {
   @Input()
   name = 'timer';
+
+  @Input()
+  showStartTime = true;
+
+  @Input()
+  showUnits = false;
+
+  @Input()
+  showTimeFormat = false;
+
+  @Input()
+  showCountdown = false;
+
+  @Input()
+  showAutostart = false;
+
   timer: Timer;
 
   unitTypes: SelectListItem<string>[];

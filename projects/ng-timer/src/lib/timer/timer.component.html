@@ -1,3 +1,3 @@
 <span *ngIf="timer">
-  {{ (((timer.timer$ | async) || 0) * timer.interval) || timerService.startTimeMS(name) | date:timer.timeFormat }}
+  {{ ((timer.timer$ | async) || 0) || timerService.startTimeMS(name) | date:timer.timeFormat }}
 </span>

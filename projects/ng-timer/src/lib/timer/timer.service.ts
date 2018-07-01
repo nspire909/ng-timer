@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { interval, merge, BehaviorSubject, Subject, NEVER, EMPTY, Observable } from 'rxjs';
-import { switchMap, scan, takeWhile, startWith, mapTo, takeUntil, take } from 'rxjs/operators';
+import { switchMap, scan, takeWhile, startWith, mapTo, takeUntil, map } from 'rxjs/operators';
 import { Unit, TimerOptions, Timer, Timers } from '../models';
 
 @Injectable({
@@ -57,6 +57,7 @@ export class TimerService {
         .pipe(
           switchMap(val => (!val ? interval$ : EMPTY)),
           scan((acc, curr) => (curr ? curr + acc : acc), this.startTimeMS(timerName) / timer.interval),
+          map(x => x * timer.interval),
           takeUntil(timer.reset$),
           takeWhile(t => t >= 0)
         );

@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "version": "cd projects/ng-timer && yarn version --patch",
     "pack": "cd dist/ng-timer && yarn pack",
-    "publish": "yarn run version && ng build ng-timer --prod && yarn run pack && cd dist/ng-timer && yarn publish --access public"
+    "publish": "yarn run version && ng build ng-timer --prod && yarn run pack && yarn publish dist/ng-timer --access public"
   },
   "private": true,
   "dependencies": {

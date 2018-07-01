@@ -1,14 +1,17 @@
 <div *ngIf="timer">
   <div *ngIf="timer.timer$ | async">
-    <button mat-button (click)="timerService.toggle(name)">
+    <button mat-icon-button (click)="timerService.toggle(name)">
       <mat-icon>{{(timer.pause$ | async) ? 'play_arrow' : 'pause'}}</mat-icon>
     </button>
     <ng-content></ng-content>
-    <button mat-button (click)="timerService.stop(name)">
+    <button mat-icon-button (click)="timerService.stop(name)">
       <mat-icon>stop</mat-icon>
     </button>
+    <button mat-icon-button (click)="timerService.start(name)">
+      <mat-icon>replay</mat-icon>
+    </button>
   </div>
-  <button mat-button *ngIf="!(timer.timer$ | async)" (click)="timerService.start(name)">
+  <button mat-icon-button *ngIf="!(timer.timer$ | async)" (click)="timerService.start(name)">
     <mat-icon>play_arrow</mat-icon>
   </button>
   <!-- <button mat-button *ngIf="timer.timer$ | async" (click)="timerService.addTime(name, 30000)">
