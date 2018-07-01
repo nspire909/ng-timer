@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "version": "cd projects/ng-timer && yarn version --patch",
+    "pack": "cd dist/ng-timer && yarn pack",
+    "publish": "yarn run version && ng build ng-timer --prod && yarn run pack && cd dist/ng-timer && yarn publish --access public"
   },
   "private": true,
   "dependencies": {

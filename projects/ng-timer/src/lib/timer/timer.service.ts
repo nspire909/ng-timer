@@ -10,10 +10,10 @@ export class TimerService {
   private defaultTimer: Timer = {
     startTime: 0,
     units: Unit.Milliseconds,
-    interval: 100,
     timeFormat: 'mm:ss.SSS',
     countdown: false,
     autostart: false,
+    interval: 100,
     locale: 'en-US',
     timer$: NEVER,
     pause$: new BehaviorSubject(true),
@@ -23,13 +23,19 @@ export class TimerService {
 
   timers: Timers = {};
 
-  newTimer(timerName: string, timerOptions?: TimerOptions) {
-    if (timerName && !this.timers[timerName]) {
+  newTimer(timerName: string, timerOptions?: TimerOptions): Timer {
+    if (!timerName) {
+      throw(new Error('timerName required'));
+    }
+
+    if (!this.timers[timerName]) {
       this.timers[timerName] = {
         ...this.defaultTimer,
         ...timerOptions
       };
     }
+
+    return this.timers[timerName];
   }
 
   start(timerName: string) {

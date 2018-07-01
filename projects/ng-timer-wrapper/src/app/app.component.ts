@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Unit } from '../../../ng-timer/src/lib/models';
-import { TimerService } from '@devrec/ng-timer';
+import { TimerService, Unit } from '@devrec/ng-timer';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +15,7 @@ export class AppComponent {
       startTime: 60,
       units: Unit.Seconds,
       countdown: true,
+      autostart: false,
       timeFormat: 'mm:ss.SSS'
     });
   }
