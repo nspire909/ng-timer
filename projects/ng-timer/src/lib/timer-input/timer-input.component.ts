@@ -26,6 +26,7 @@ export class TimerInputComponent implements OnInit {
         .filter(key => typeof Unit[key] === 'string')
         .map(key => ({ name: key, value: Unit[key] }));
       this.timeFormats = [
+        'mm:ss',
         'mm:ss.SSS',
         'hh:mm:ss.SSS',
         'hh:mm:ss'

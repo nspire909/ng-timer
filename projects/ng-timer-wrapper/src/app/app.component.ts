@@ -12,11 +12,11 @@ export class AppComponent {
 
   constructor(timerService: TimerService) {
     timerService.newTimer(this.name, {
-      startTime: 60,
-      units: Unit.Seconds,
+      startTime: 15,
+      units: Unit.Minutes,
       countdown: true,
       autostart: false,
-      timeFormat: 'mm:ss.SSS'
+      timeFormat: 'mm:ss'
     });
   }
 }

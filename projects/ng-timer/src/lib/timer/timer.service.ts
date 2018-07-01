@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { interval, merge, BehaviorSubject, Subject, NEVER, EMPTY } from 'rxjs';
+import { interval, merge, BehaviorSubject, Subject, NEVER, EMPTY, Observable } from 'rxjs';
 import { switchMap, scan, takeWhile, startWith, mapTo, takeUntil, take } from 'rxjs/operators';
 import { Unit, TimerOptions, Timer, Timers } from '../models';
 
@@ -38,7 +38,7 @@ export class TimerService {
     return this.timers[timerName];
   }
 
-  start(timerName: string) {
+  start(timerName: string): Observable<number> {
     const timer = this.timers[timerName];
 
     if (timer) {
@@ -60,6 +60,8 @@ export class TimerService {
           takeUntil(timer.reset$),
           takeWhile(t => t >= 0)
         );
+
+      return timer.timer$;
     }
   }
 
