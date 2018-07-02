@@ -42,6 +42,7 @@ export class TimerService {
     const timer = this.timers[timerName];
 
     if (timer) {
+      timer.reset$.next();
       // timer.addTime$.next((timer.countdown ? -1 : 1));
 
       const interval$ = interval(timer.interval).pipe(
