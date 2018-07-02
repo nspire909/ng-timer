@@ -78,6 +78,8 @@ export class TimerService {
   stop(timerName: string) {
     const timer = this.timers[timerName];
     if (timer) {
+      timer.reset$.next();
+      timer.pause$.next(true);
       timer.timer$ = NEVER;
     }
   }
