@@ -7,7 +7,7 @@ import { Unit, TimerOptions, Timer, Timers } from '../models';
   providedIn: 'root'
 })
 export class TimerService {
-  private defaultTimer: Timer = {
+  private defaultTimerOptions: TimerOptions = {
     startTime: 0,
     units: Unit.Milliseconds,
     timeFormat: 'mm:ss.SSS',
@@ -15,11 +15,6 @@ export class TimerService {
     autostart: false,
     interval: 100,
     locale: 'en-US',
-    timer$: NEVER,
-    interval$: NEVER,
-    pause$: new BehaviorSubject(true),
-    reset$: new Subject(),
-    // addTime$: new BehaviorSubject(1),
   };
 
   timers: Timers = {};
@@ -31,8 +26,13 @@ export class TimerService {
 
     if (!this.timers[timerName]) {
       this.timers[timerName] = {
-        ...this.defaultTimer,
-        ...timerOptions
+        ...this.defaultTimerOptions,
+        ...timerOptions,
+        timer$: NEVER,
+        interval$: NEVER,
+        pause$: new BehaviorSubject(true),
+        reset$: new Subject(),
+        // addTime$: new BehaviorSubject(1),
       };
     }
 
