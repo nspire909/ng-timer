@@ -16,6 +16,7 @@ export class TimerService {
     interval: 100,
     locale: 'en-US',
     timer$: NEVER,
+    interval$: NEVER,
     pause$: new BehaviorSubject(true),
     reset$: new Subject(),
     // addTime$: new BehaviorSubject(1),
@@ -45,7 +46,7 @@ export class TimerService {
       timer.reset$.next();
       // timer.addTime$.next((timer.countdown ? -1 : 1));
 
-      const interval$ = interval(timer.interval).pipe(
+      timer.interval$ = interval(timer.interval).pipe(
         startWith(0),
         mapTo((timer.countdown ? -1 : 1)),
         // switchMap(val => timer.addTime$),
@@ -56,7 +57,7 @@ export class TimerService {
 
       timer.timer$ = merge(timer.pause$)
         .pipe(
-          switchMap(val => (!val ? interval$ : EMPTY)),
+          switchMap(val => (!val ? timer.interval$ : EMPTY)),
           scan((acc, curr) => (curr ? curr + acc : acc), this.startTimeMS(timerName) / timer.interval),
           map(x => x * timer.interval),
           takeUntil(timer.reset$),

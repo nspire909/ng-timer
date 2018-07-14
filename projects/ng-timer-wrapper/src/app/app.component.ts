@@ -7,7 +7,8 @@ import { TimerService, Unit } from '@devrec/ng-timer';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  name = 'myTimer';
+  timer1 = 'timer1';
+  timer2 = 'timer2';
   isDarkTheme = true;
 
   timeFcn = (x => {
@@ -21,12 +22,19 @@ export class AppComponent {
   });
 
   constructor(timerService: TimerService) {
-    timerService.newTimer(this.name, {
+    timerService.newTimer(this.timer1, {
       startTime: 15,
       units: Unit.Minutes,
       countdown: true,
       autostart: false,
       timeFormat: 'mm:ss'
+    });
+    timerService.newTimer(this.timer2, {
+      startTime: 0,
+      units: Unit.Seconds,
+      countdown: false,
+      autostart: false,
+      timeFormat: 'mm:ss.SSS'
     });
   }
 }

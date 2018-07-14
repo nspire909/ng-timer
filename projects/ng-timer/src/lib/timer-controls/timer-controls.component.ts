@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TimerService } from '../timer/timer.service';
 import { Timer } from '../models';
@@ -8,7 +8,7 @@ import { Timer } from '../models';
   templateUrl: './timer-controls.component.html',
   styleUrls: ['./timer-controls.component.scss']
 })
-export class TimerControlsComponent implements OnInit {
+export class TimerControlsComponent implements OnInit, OnDestroy {
   @Input()
   name = 'timer';
 
@@ -39,5 +39,9 @@ export class TimerControlsComponent implements OnInit {
 
   stopTimer() {
     this.timerService.stop(this.name);
+  }
+
+  ngOnDestroy() {
+    this.timerSubscription.unsubscribe();
   }
 }

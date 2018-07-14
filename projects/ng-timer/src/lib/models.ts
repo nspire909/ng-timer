@@ -24,6 +24,7 @@ export interface TimerOptions {
 
 export interface Timer extends TimerOptions {
   timer$: Observable<number>;
+  interval$: Observable<number>;
   pause$: BehaviorSubject<boolean>;
   reset$: Subject<void>;
   // addTime$: BehaviorSubject<number>;
