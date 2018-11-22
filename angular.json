@@ -31,7 +31,8 @@
           "options": {
             "main": "projects/ng-timer/src/test.ts",
             "tsConfig": "projects/ng-timer/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-timer/karma.conf.js"
+            "karmaConfig": "projects/ng-timer/karma.conf.js",
+            "watch": false
           }
         },
         "lint": {
@@ -130,7 +131,8 @@
             "assets": [
               "projects/ng-timer-wrapper/src/favicon.ico",
               "projects/ng-timer-wrapper/src/assets"
-            ]
+            ],
+            "watch": false
           }
         },
         "lint": {
