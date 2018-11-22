@@ -4,7 +4,7 @@
   "version": "0.0.14",
   "scripts": {
     "preversion": "cd ../.. && yarn run review",
-    "postversion": "cd ../.. && ng build ng-timer --prod && git push --tags && yarn publish dist/ng-timer --access public --tag %npm_package_version% && git push && echo \"Successfully released version %npm_package_version%!\""
+    "postversion": "cd ../.. && yarn run build:ng-timer && git push --tags && yarn publish dist/ng-timer --access public --tag %npm_package_version% && git push && echo \"Successfully released version %npm_package_version%!\""
   },
   "repository": {
     "type": "git",

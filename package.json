@@ -1,5 +1,5 @@
 {
-  "name": "ng-timer",
+  "name": "@devrec/ng-timer-build",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "review": "run-s lint test e2e",
-    "publish": "cd projects/ng-timer && yarn version --patch"
+    "publish": "cd projects/ng-timer && yarn version --patch",
+    "build:ng-timer": "run-s \"utilities uv\" \"build ng-timer --prod\" \"utilities ca\"",
+    "update-version": "ts-node --project tsconfig.json --files tools/update-version.ts",
+    "utilities": "ts-node --project tsconfig.json --files tools/utilities.ts",
+    "postinstall": "run-s \"utilities uv\""
   },
   "private": true,
   "dependencies": {
@@ -25,6 +29,8 @@
     "@angular/platform-browser": "^7.1.0",
     "@angular/platform-browser-dynamic": "^7.1.0",
     "@angular/router": "^7.1.0",
+    "colors": "^1.3.2",
+    "commander": "^2.19.0",
     "core-js": "^2.5.4",
     "rxjs": "^6.3.3",
     "zone.js": "^0.8.26"
@@ -35,10 +41,14 @@
     "@angular/cli": "~7.0.6",
     "@angular/compiler-cli": "^7.1.0",
     "@angular/language-service": "^7.1.0",
+    "@types/fs-extra": "^5.0.4",
     "@types/jasmine": "~3.3.0",
     "@types/jasminewd2": "~2.0.6",
     "@types/node": "~10.12.10",
+    "chalk": "^2.4.1",
     "codelyzer": "~4.5.0",
+    "fs-extra": "^7.0.1",
+    "git-describe": "^4.0.3",
     "jasmine-core": "~3.3.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.1",
@@ -49,7 +59,7 @@
     "ng-packagr": "^4.4.0",
     "npm-run-all": "^4.1.3",
     "protractor": "~5.4.1",
-    "ts-node": "~7.0.1",
+    "ts-node": "^7.0.1",
     "tsickle": "0.34.0",
     "tslib": "^1.9.3",
     "tslint": "~5.11.0",
