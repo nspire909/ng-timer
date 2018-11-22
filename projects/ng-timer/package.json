@@ -1,7 +1,7 @@
 {
   "name": "@devrec/ng-timer",
   "description": "Angular timer using rxjs",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "scripts": {
     "preversion": "cd ../.. && yarn run review",
     "postversion": "cd ../.. && ng build ng-timer --prod && git push --tags && yarn publish dist/ng-timer --access public --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\""
