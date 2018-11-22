@@ -1,12 +1,17 @@
 {
   "name": "@devrec/ng-timer",
   "description": "Angular timer using rxjs",
-  "version": "0.0.9",
+  "version": "0.0.12",
   "repository": {
     "type": "git",
     "url": "https://github.com/nspire909/ng-timer.git"
   },
-  "keywords": [],
+  "keywords": [
+    "angular",
+    "ng",
+    "rxjs",
+    "timer"
+  ],
   "author": {
     "name": "Nick Marks",
     "email": "nspire909@gmail.com",
