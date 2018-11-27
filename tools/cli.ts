@@ -1,6 +1,6 @@
 const program = require('commander');
-import { copyAssets } from './copy-assets';
-import { updateVersion } from './update-version';
+import { copyAssets } from './utilities/copy-assets';
+import { updateVersion } from './utilities/update-version';
 
 program
   .command('copy-assets')

@@ -49,9 +49,9 @@
         }
       }
     },
-    "ng-timer-wrapper": {
-      "root": "projects/ng-timer-wrapper/",
-      "sourceRoot": "projects/ng-timer-wrapper/src",
+    "ng-timer-docs": {
+      "root": "projects/ng-timer-docs/",
+      "sourceRoot": "projects/ng-timer-docs/src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {
@@ -63,17 +63,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-timer-wrapper",
-            "index": "projects/ng-timer-wrapper/src/index.html",
-            "main": "projects/ng-timer-wrapper/src/main.ts",
-            "polyfills": "projects/ng-timer-wrapper/src/polyfills.ts",
-            "tsConfig": "projects/ng-timer-wrapper/tsconfig.app.json",
+            "outputPath": "dist/ng-timer-docs",
+            "index": "projects/ng-timer-docs/src/index.html",
+            "main": "projects/ng-timer-docs/src/main.ts",
+            "polyfills": "projects/ng-timer-docs/src/polyfills.ts",
+            "tsConfig": "projects/ng-timer-docs/tsconfig.app.json",
             "assets": [
-              "projects/ng-timer-wrapper/src/favicon.ico",
-              "projects/ng-timer-wrapper/src/assets"
+              "projects/ng-timer-docs/src/favicon.ico",
+              "projects/ng-timer-docs/src/assets"
             ],
             "styles": [
-              "projects/ng-timer-wrapper/src/styles.scss"
+              "projects/ng-timer-docs/src/styles.scss"
             ],
             "scripts": []
           },
@@ -81,8 +81,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/ng-timer-wrapper/src/environments/environment.ts",
-                  "with": "projects/ng-timer-wrapper/src/environments/environment.prod.ts"
+                  "replace": "projects/ng-timer-docs/src/environments/environment.ts",
+                  "with": "projects/ng-timer-docs/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -93,20 +93,21 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "baseHref": "/ng-timer/"
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-timer-wrapper:build",
+            "browserTarget": "ng-timer-docs:build",
             "port": 5001,
             "open": true
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-timer-wrapper:build:production",
+              "browserTarget": "ng-timer-docs:build:production",
               "port": 5002
             }
           }
@@ -114,23 +115,23 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-timer-wrapper:build"
+            "browserTarget": "ng-timer-docs:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ng-timer-wrapper/src/test.ts",
-            "polyfills": "projects/ng-timer-wrapper/src/polyfills.ts",
-            "tsConfig": "projects/ng-timer-wrapper/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-timer-wrapper/karma.conf.js",
+            "main": "projects/ng-timer-docs/src/test.ts",
+            "polyfills": "projects/ng-timer-docs/src/polyfills.ts",
+            "tsConfig": "projects/ng-timer-docs/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-timer-docs/karma.conf.js",
             "styles": [
-              "projects/ng-timer-wrapper/src/styles.scss"
+              "projects/ng-timer-docs/src/styles.scss"
             ],
             "scripts": [],
             "assets": [
-              "projects/ng-timer-wrapper/src/favicon.ico",
-              "projects/ng-timer-wrapper/src/assets"
+              "projects/ng-timer-docs/src/favicon.ico",
+              "projects/ng-timer-docs/src/assets"
             ],
             "watch": false
           }
@@ -139,8 +140,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ng-timer-wrapper/tsconfig.app.json",
-              "projects/ng-timer-wrapper/tsconfig.spec.json"
+              "projects/ng-timer-docs/tsconfig.app.json",
+              "projects/ng-timer-docs/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -149,26 +150,26 @@
         }
       }
     },
-    "ng-timer-wrapper-e2e": {
-      "root": "projects/ng-timer-wrapper-e2e/",
+    "ng-timer-docs-e2e": {
+      "root": "projects/ng-timer-docs-e2e/",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/ng-timer-wrapper-e2e/protractor.conf.js",
-            "devServerTarget": "ng-timer-wrapper:serve"
+            "protractorConfig": "projects/ng-timer-docs-e2e/protractor.conf.js",
+            "devServerTarget": "ng-timer-docs:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ng-timer-wrapper:serve:production"
+              "devServerTarget": "ng-timer-docs:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "projects/ng-timer-wrapper-e2e/tsconfig.e2e.json",
+            "tsConfig": "projects/ng-timer-docs-e2e/tsconfig.e2e.json",
             "exclude": [
               "**/node_modules/**"
             ]
@@ -177,5 +178,5 @@
       }
     }
   },
-  "defaultProject": "ng-timer-wrapper"
+  "defaultProject": "ng-timer-docs"
 }

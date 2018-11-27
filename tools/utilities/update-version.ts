@@ -14,7 +14,7 @@ export const updateVersion = async () => {
   gitInfo.commitHash = (await promisify(exec)('git rev-parse HEAD')).stdout.replace('\r', '').replace('\n', '');
   gitInfo.branch = (await promisify(exec)('git rev-parse --abbrev-ref HEAD')).stdout.replace('\r', '').replace('\n', '');
 
-  const file = resolve(__dirname, '..', 'projects', 'ng-timer-wrapper', 'src', 'environments', 'version.ts');
+  const file = resolve(__dirname, '..', '..', 'projects', 'ng-timer-docs', 'src', 'environments', 'version.ts');
   writeFile(file,
 `// IMPORTANT: THIS FILE IS AUTO GENERATED! DO NOT MANUALLY EDIT OR CHECK IN!
 export const VERSION = ${JSON.stringify(gitInfo, null, 2).replace(/"/g, '\'')};
