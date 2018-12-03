@@ -1,0 +1,8 @@
+<mat-card *ngIf="name">
+  <mat-card-title>Basic Example</mat-card-title>
+  <mat-card-content fxLayoutAlign="space-between">
+    <ng-timer-input [name]="name" showUnits="true" showTimeFormat="true" showCountdown="true" showAutostart="true"></ng-timer-input>
+    <ng-timer-controls [name]="name" [timeFcn]="timeFcn"></ng-timer-controls>
+    <ng-timer [name]="name"></ng-timer>
+  </mat-card-content>
+</mat-card>

@@ -2,29 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {
-  MatCheckboxModule,
-  MatToolbarModule,
-  MatCardModule
-} from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { TimerModule } from '@devrec/ng-timer';
 
 import { AppComponent } from './app.component';
+import { AllMaterialImportsModule } from './shared/all-material-imports.module';
+import { ExampleComponent } from './example/example.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ExampleComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    MatCheckboxModule,
-    MatToolbarModule,
-    MatCardModule,
+    AllMaterialImportsModule,
     TimerModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,26 +1,10 @@
-<mat-toolbar color="primary">
-  <div>Timer</div>
-  <div class="spacer"></div>
-  <span>Dark Theme&nbsp;&nbsp;</span>
-  <mat-checkbox [(ngModel)]="isDarkTheme"></mat-checkbox>
-</mat-toolbar>
-<div class="page-content" [ngClass]="isDarkTheme ? 'dark-theme' : ''" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center">
-  <mat-card fxFlex="33%">
-    <ng-timer-input [name]="timer1"></ng-timer-input>
-  </mat-card>
-  <mat-card fxFlex="33%">
-    <ng-timer-controls [name]="timer1" [timeFcn]="timeFcn"></ng-timer-controls>
-  </mat-card>
-  <mat-card fxFlex="33%">
-    <ng-timer [name]="timer1"></ng-timer>
-  </mat-card>
-  <mat-card fxFlex="33%">
-    <ng-timer-input [name]="timer2"></ng-timer-input>
-  </mat-card>
-  <mat-card fxFlex="33%">
-    <ng-timer-controls [name]="timer2" [timeFcn]="timeFcn"></ng-timer-controls>
-  </mat-card>
-  <mat-card fxFlex="33%">
-    <ng-timer [name]="timer2"></ng-timer>
-  </mat-card>
+<div class="container" [ngClass]="isDarkTheme ? 'dark-theme' : ''">
+  <mat-toolbar color="primary" fxLayoutAlign="space-between center">
+    <div>Timer</div>
+    <span>Dark Theme&nbsp;&nbsp;<mat-checkbox [(ngModel)]="isDarkTheme"></mat-checkbox></span>
+  </mat-toolbar>
+  <div class="page-content" fxLayout="column" fxLayoutGap="1rem">
+    <app-example [name]="timer1" [timeFcn]="timeFcn"></app-example>
+    <app-example [name]="timer2" [timeFcn]="timeFcn"></app-example>
+  <div>
 <div>

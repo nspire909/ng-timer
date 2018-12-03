@@ -22,18 +22,12 @@ export class AppComponent {
   });
 
   constructor(timerService: TimerService) {
-    timerService.newTimer(this.timer1, {
+    timerService.newTimer(this.timer1);
+    timerService.newTimer(this.timer2, {
       startTime: 15,
       units: Unit.Minutes,
       countdown: true,
-      autostart: false,
-      timeFormat: 'mm:ss'
-    });
-    timerService.newTimer(this.timer2, {
-      startTime: 0,
-      units: Unit.Seconds,
-      countdown: false,
-      autostart: false,
+      autostart: true,
       timeFormat: 'mm:ss.SSS'
     });
   }
