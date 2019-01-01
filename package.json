@@ -1,6 +1,6 @@
 {
   "name": "@devrec/ng-timer-build",
-  "version": "0.0.0-development",
+  "version": "0.0.18",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
