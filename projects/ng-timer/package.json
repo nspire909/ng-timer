@@ -1,11 +1,7 @@
 {
   "name": "@devrec/ng-timer",
   "description": "Angular timer using rxjs",
-  "version": "0.0.18",
-  "scripts": {
-    "preversion": "yarn --cwd ../.. run review",
-    "postversion": "yarn --cwd ../.. run build:ng-timer && git push --tags && yarn publish ../../dist/ng-timer --access public --tag latest --non-interactive && git push && echo \"Successfully released version %npm_package_version%!\""
-  },
+  "version": "0.0.0-semantically-released",
   "repository": {
     "type": "git",
     "url": "https://github.com/nspire909/ng-timer.git"

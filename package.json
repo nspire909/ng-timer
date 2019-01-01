@@ -1,6 +1,6 @@
 {
   "name": "@devrec/ng-timer-build",
-  "version": "0.0.18",
+  "version": "0.0.0-semantically-released",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "review": "run-s lint test e2e",
-    "publish": "yarn version --patch --no-git-tag-version && yarn --cwd projects/ng-timer version --patch",
     "build:ng-timer": "run-s \"utilities uv\" \"build ng-timer --prod\" \"utilities ca\"",
     "build:ng-timer-docs": "run-s \"build ng-timer-docs --prod\"",
     "update-version": "ts-node --project tsconfig.json --files tools/update-version.ts",
