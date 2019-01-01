@@ -18,7 +18,7 @@ steps:
 - script: yarn
   displayName: 'Install Dependencies'
 
-- script: npx ng build --prod
+- script: npx run-s build:ng-timer
   displayName: 'Build'
 
 - script: npx semantic-release
