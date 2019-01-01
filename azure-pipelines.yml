@@ -15,7 +15,11 @@ steps:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
-- script: |
-    yarn install
-    npx ng build --prod
-  displayName: 'yarn install and build'
+- script: yarn
+  displayName: 'Install Dependencies'
+
+- script: npx ng build --prod
+  displayName: 'Build'
+
+- script: npx semantic-release
+  displayName: 'Release'

@@ -1,6 +1,6 @@
 {
   "name": "@devrec/ng-timer-build",
-  "version": "0.0.18",
+  "version": "0.0.0-development",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -16,7 +16,11 @@
     "utilities": "ts-node --project tsconfig.json --files tools/cli.ts",
     "ngh": "ngh --dir=dist/ng-timer-docs",
     "deploy": "run-s build:ng-timer-docs ngh",
-    "postinstall": "run-s \"utilities uv\""
+    "postinstall": "run-s \"utilities uv\"",
+    "semantic-release": "semantic-release"
+  },
+  "release": {
+    "pkgRoot": "dist/ng-timer"
   },
   "private": true,
   "dependencies": {
@@ -67,6 +71,11 @@
     "tsickle": "0.34.0",
     "tslib": "^1.9.3",
     "tslint": "~5.11.0",
-    "typescript": "~3.1.6"
+    "typescript": "~3.1.6",
+    "semantic-release": "^15.13.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nspire909/ng-timer.git"
   }
 }
