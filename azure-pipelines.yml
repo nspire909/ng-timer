@@ -30,8 +30,8 @@ steps:
 - task: PublishCodeCoverageResults@1
   inputs: 
     codeCoverageTool: Cobertura
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
+    summaryFileLocation: '**/ng-timer/cobertura-coverage.xml'
+    reportDirectory: '**/coverage/ng-timer'
 
 - script: npx run-s build:ng-timer
   displayName: 'Build ng-timer'
