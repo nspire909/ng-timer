@@ -13,7 +13,7 @@
     "build:ng-timer-docs": "run-s \"build ng-timer-docs --prod\"",
     "commit-n-push": "git-cz -a && git push -u origin HEAD",
     "release": "semantic-release",
-    "deploy": "git config user.email && git config user.name && ngh --dir=dist/ng-timer-docs --no-silent",
+    "deploy": "ngh --dir=dist/ng-timer-docs --no-silent --name=\"Nick Marks\" --email=nick.marks@eagletg.com",
     "utilities": "ts-node --project tsconfig.json --files tools/cli.ts",
     "postinstall": "run-s \"utilities uv\""
   },
