@@ -271,6 +271,9 @@ Apache-2.0
 @angular/core
 MIT
 
+@angular/animations
+MIT
+
 @angular/common
 MIT
 
@@ -327,15 +330,22 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-@angular/material/toolbar
+@angular/material/bottom-sheet
+
+@angular/material/dialog
 
 @angular/forms
 MIT
 
-@angular/animations
-MIT
+@angular/material/button
 
-@angular/material/checkbox
+@angular/material/datepicker
+
+@angular/material/tooltip
+
+@angular/material/snack-bar
+
+@angular/material/toolbar
 
 @angular/flex-layout
 MIT
@@ -567,17 +577,17 @@ THE SOFTWARE.
 >>>>>>> Initial commit
 
 
+@angular/material/checkbox
+
 @angular/material/card
+
+@angular/material/icon
 
 @angular/material/form-field
 
 @angular/material/core
 
 @angular/material/select
-
-@angular/material/button
-
-@angular/material/icon
 
 zone.js
 MIT
