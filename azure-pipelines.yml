@@ -15,9 +15,6 @@ steps:
     versionSpec: '8.x'
   displayName: 'Install Node.js'
 
-- script: git config user.email && git config user.name
-  displayName: 'Set git user info'
-
 - script: yarn
   displayName: 'Install Dependencies'
 
