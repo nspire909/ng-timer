@@ -11,9 +11,9 @@
     "review": "run-s lint test e2e",
     "build:ng-timer": "run-s \"utilities uv\" \"build ng-timer --prod\" \"utilities ca\"",
     "build:ng-timer-docs": "run-s \"build ng-timer-docs --prod\"",
-    "commit-n-push": "git-cz && git push -u origin HEAD",
+    "commit-n-push": "git-cz -a && git push -u origin HEAD",
     "release": "semantic-release",
-    "deploy": "ngh --dir=dist/ng-timer-docs --no-silent",
+    "deploy": "git config user.email && git config user.name && ngh --dir=dist/ng-timer-docs --no-silent",
     "utilities": "ts-node --project tsconfig.json --files tools/cli.ts",
     "postinstall": "run-s \"utilities uv\""
   },
