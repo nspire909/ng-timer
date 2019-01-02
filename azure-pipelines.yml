@@ -19,7 +19,13 @@ steps:
   displayName: 'Install Dependencies'
 
 - script: npx run-s build:ng-timer
-  displayName: 'Build'
+  displayName: 'Build ng-timer'
 
-- script: npx semantic-release
-  displayName: 'Release'
+- script: npx run-s build:ng-timer-docs
+  displayName: 'Build ng-timer-docs'
+
+- script: npx run-s release
+  displayName: 'Release ng-timer to npm'
+
+- script: npx run-s deploy
+  displayName: 'Deploy ng-timer-docs to github pages'
