@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "review": "run-s lint test e2e",
+    "review": "run-s lint test",
     "build:ng-timer": "run-s \"utilities uv\" \"build ng-timer --prod\" \"utilities ca\"",
     "build:ng-timer-docs": "run-s \"build ng-timer-docs --prod\"",
     "commit-n-push": "git-cz -a && git push -u origin HEAD",

@@ -33,7 +33,7 @@
             "tsConfig": "projects/ng-timer/tsconfig.spec.json",
             "karmaConfig": "projects/ng-timer/karma.conf.js",
             "watch": false,
-            "codeCoverage": true,
+            "codeCoverage": false,
             "codeCoverageExclude": [
               "projects/ng-timer/src/test.ts"
             ]
@@ -137,7 +137,12 @@
               "projects/ng-timer-docs/src/favicon.ico",
               "projects/ng-timer-docs/src/assets"
             ],
-            "watch": false
+            "watch": false,
+            "codeCoverage": true,
+            "codeCoverageExclude": [
+              "projects/ng-timer-docs/src/test.ts",
+              "projects/ng-timer-docs/src/polyfills.ts"
+            ]
           }
         },
         "lint": {

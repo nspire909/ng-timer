@@ -18,22 +18,24 @@ steps:
 - script: yarn
   displayName: 'Install Dependencies'
 
-- script: npx ng test ng-timer
-  displayName: 'Test ng-timer'
+- script: npx run-s review
+  displayName: 'Review'
 
 - task: PublishTestResults@2
+  displayName: 'Publish Test Results'
   condition: succeededOrFailed()
   inputs:
     testRunner: JUnit
-    testResultsFiles: '**/TESTS-*.xml'
+    testResultsFiles: '**/coverage/**/TESTS-*.xml'
 
 - task: PublishCodeCoverageResults@1
+  displayName: 'Publish Code Coverage Results'
   inputs: 
     codeCoverageTool: Cobertura
-    summaryFileLocation: '**/ng-timer/cobertura-coverage.xml'
-    reportDirectory: '**/coverage/ng-timer'
+    summaryFileLocation: '**/ng-timer-docs/cobertura-coverage.xml'
+    reportDirectory: '**/coverage/ng-timer-docs'
 
-- script: npx run-s build:ng-timer
+- script: npx run-s build:ng-timer  
   displayName: 'Build ng-timer'
 
 - script: npx run-s build:ng-timer-docs
