@@ -28,5 +28,8 @@
     "@angular/core": "^7.0.0",
     "@angular/forms": "^7.0.0",
     "@angular/material": "^7.0.0"
+  },
+  "scripts": {
+    "prepare": "yarn --cwd ../.. run build:ng-timer"
   }
 }
