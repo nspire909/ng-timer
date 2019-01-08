@@ -33,3 +33,4 @@ export interface Timer extends TimerOptions {
 export interface Timers {
   [key: string]: Timer;
 }
+
