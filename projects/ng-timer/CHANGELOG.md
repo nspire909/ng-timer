@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/nspire909/ng-timer/compare/@devrec/ng-timer@0.2.1...@devrec/ng-timer@0.2.2) (2019-01-08)
+
+
+### Bug Fixes
+
+* added build script ([49d5f75](https://github.com/nspire909/ng-timer/commit/49d5f75))
+* moved readme ([290e4d7](https://github.com/nspire909/ng-timer/commit/290e4d7))
+
+
+
+
+
 ## [0.2.1](https://github.com/nspire909/ng-timer/compare/@devrec/ng-timer@0.2.0...@devrec/ng-timer@0.2.1) (2019-01-08)
 
 
