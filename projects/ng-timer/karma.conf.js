@@ -19,13 +19,13 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../../coverage/ng-timer'),
-      reports: ['html', 'lcovonly', 'cobertura', 'text-summary'],
+      reports: ['html', 'lcovonly'],
       fixWebpackSourcePaths: true
     },
     junitReporter: {
       outputDir: require('path').join(__dirname, '../../coverage/ng-timer')
     },
-    reporters: ['progress', 'kjhtml', 'junit', 'coverage-istanbul'],
+    reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
