@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.5](https://github.com/nspire909/ng-timer/compare/@devrec/ng-timer@0.2.4...@devrec/ng-timer@0.2.5) (2019-01-08)
+
+
+### Bug Fixes
+
+* aaa ([aa834ec](https://github.com/nspire909/ng-timer/commit/aa834ec))
+
+
+
+
+
 ## [0.2.4](https://github.com/nspire909/ng-timer/compare/@devrec/ng-timer@0.2.3...@devrec/ng-timer@0.2.4) (2019-01-08)
 
 
