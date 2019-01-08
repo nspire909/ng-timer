@@ -29,10 +29,17 @@
     "@angular/forms": "^7.0.0",
     "@angular/material": "^7.0.0"
   },
+  "files": [],
   "release": {
     "pkgRoot": "../../dist/ng-timer",
     "monorepo": {
-      "generateNotes": ["@semantic-release/release-notes-generator", "@semantic-release/release-notes-generator"]
+      "generateNotes": [
+        "@semantic-release/release-notes-generator",
+        "@semantic-release/release-notes-generator"
+      ]
     }
+  },
+  "devDependencies": {
+    "lerna": "^3.9.1"
   }
 }
