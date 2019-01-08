@@ -30,6 +30,9 @@
     "@angular/material": "^7.0.0"
   },
   "release": {
-    "pkgRoot": "../../dist/ng-timer"
+    "pkgRoot": "../../dist/ng-timer",
+    "monorepo": {
+      "generateNotes": ["@semantic-release/release-notes-generator", "@semantic-release/release-notes-generator"]
+    }
   }
 }
