@@ -30,6 +30,7 @@
     "@angular/material": "^7.0.0"
   },
   "scripts": {
-    "prepare": "yarn --cwd ../.. run build:ng-timer"
-  }
+    "prepare": "cd ../.. && run-s build:ng-timer"
+  },
+  "gitHead": "370aafa438a57702633ed28188bc6c86efd5e1df"
 }
