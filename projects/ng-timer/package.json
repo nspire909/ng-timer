@@ -30,7 +30,7 @@
     "@angular/material": "^7.0.0"
   },
   "scripts": {
-    "prepare": "cd ../.. && npx run-s build:ng-timer"
+    "prepare": "cd ../.. && npx ng build ng-timer"
   },
-  "gitHead": "b584b5d764ca1041d281861733f0d973d8d26287"
+  "gitHead": "e919949f7679ec6ae98bfd722d41ac0d7fc1045f"
 }
