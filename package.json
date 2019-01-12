@@ -12,6 +12,8 @@
     "build:ng-timer": "run-s \"utilities uv\" \"build ng-timer --prod\" \"utilities ca\"",
     "build:ng-timer-docs": "run-s \"build ng-timer-docs --prod\"",
     "commit-n-push": "git-cz -a && git push -u origin HEAD",
+    "version": "lerna version",
+    "publish": "lerna publish from-git",
     "release": "semantic-release",
     "deploy": "ngh --dir=dist/ng-timer-docs --name=\"Nick Marks\" --email=nick.marks@eagletg.com --repo=https://GH_TOKEN@github.com/nspire909/ng-timer.git",
     "utilities": "ts-node --project tsconfig.json --files tools/cli.ts",
