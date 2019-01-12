@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.7](https://github.com/nspire909/ng-timer/compare/@devrec/ng-timer@0.2.6...@devrec/ng-timer@0.2.7) (2019-01-12)
+
+
+### Bug Fixes
+
+* ppppp ([fa14c47](https://github.com/nspire909/ng-timer/commit/fa14c47))
+
+
+
+
+
 ## [0.2.6](https://github.com/nspire909/ng-timer/compare/@devrec/ng-timer@0.2.5...@devrec/ng-timer@0.2.6) (2019-01-09)
 
 
