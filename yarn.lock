@@ -202,10 +202,10 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/language-service@^7.1.3":
-  version "7.1.3"
-  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-7.1.3.tgz#7388097137a6cc3acc234d6d409b78028a2c1b9b"
-  integrity sha512-Hi4VNObJbSz9OpOjqD/TonfIkwE1jD7PahASuPEnvzARDhGA8IiQP0qwarFMffyCx5SbvdpWLA44aGbrgFI1gQ==
+"@angular/language-service@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-8.2.0.tgz#98c3d01807a08750b85bcc8bcfface06e2f55b6e"
+  integrity sha512-fv+BF4Fgy/JASi3lpfwxDFsByWfpsASr5wt2zFMozHSb0ZsJ22OpyvdnjPfEaAOLDV0qcXIZEZ6O+NjRq2qurQ==
 
 "@angular/material@^7.1.1":
   version "7.1.1"
@@ -2740,7 +2740,7 @@ compressible@~2.0.13:
 
 compression@^1.5.2:
   version "1.7.2"
-  resolved "http://registry.npmjs.org/compression/-/compression-1.7.2.tgz#aaffbcd6aaf854b44ebb280353d5ad1651f59a69"
+  resolved "https://registry.npmjs.org/compression/-/compression-1.7.2.tgz#aaffbcd6aaf854b44ebb280353d5ad1651f59a69"
   dependencies:
     accepts "~1.3.4"
     bytes "3.0.0"
